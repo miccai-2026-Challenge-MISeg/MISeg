@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MYOSAIQ Challenge 2025 — Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --primary-blue:#4a90e2;
+      --text-dark:#333333;
+      --text-light:#666666;
+      --border-light:#e0e0e0;
+      --bg-white:#ffffff;
+      --bg-light:#f8f9fa;
+      --max-width:1400px;
+    }
+    
+    *{box-sizing:border-box;margin:0;padding:0}
+    
+    html,body{
+      font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height:1.6;
+      color:var(--text-dark);
+      background:var(--bg-white);
+    }
+    
+    a{color:var(--primary-blue);text-decoration:none}
+    a:hover{color:#2c5aa0;text-decoration:underline}
+
+    /* Header */
+    .topbar{
+      background:var(--bg-white);
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+    
+    .wrap{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:0 20px;
+    }
+    
+    .logos{
+      display:flex;
+      align-items:center;
+      gap:30px;
+      padding:15px 0;
+      border-bottom:1px solid var(--border-light);
+    }
+    
+    .logos img{
+      height:60px;
+      width:auto;
+    }
+
+    .nav{padding:0}
+    
+    .nav ul{
+      display:flex;
+      list-style:none;
+      gap:0;
+      margin:0;
+      padding:0;
+    }
+    
+    .nav li{margin:0}
+    
+    .nav a{
+      display:block;
+      padding:15px 20px;
+      color:var(--text-dark);
+      text-decoration:none;
+      font-weight:500;
+      font-size:14px;
+      text-transform:uppercase;
+      letter-spacing:0.5px;
+      transition:all 0.3s ease;
+      border-bottom:3px solid transparent;
+    }
+    
+    .nav a:hover{
+      color:var(--primary-blue);
+      border-bottom-color:var(--primary-blue);
+      background:rgba(74,144,226,0.05);
+    }
+
+    /* Hero gallery */
+    .hero{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:40px 20px;
+    }
+    
+    .gallery{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:20px;
+    }
+    
+    @media(min-width:960px){
+      .gallery{grid-template-columns:repeat(3,1fr);}
+    }
+    
+    .gallery img{
+      width:100%;
+      height:350px;
+      object-fit:cover;
+      border-radius:8px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.1);
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .gallery img:hover{
+      transform:translateY(-5px);
+      box-shadow:0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    /* About */
+    section{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:60px 20px;
+    }
+    
+    h1{
+      font-size:clamp(2.5rem, 5vw, 4rem);
+      font-weight:700;
+      line-height:1.2;
+      margin:0 0 30px;
+      color:var(--text-dark);
+    }
+    
+    h2{
+      font-size:clamp(1.8rem, 3vw, 2.5rem);
+      font-weight:600;
+      line-height:1.3;
+      margin:0 0 20px;
+      color:var(--text-dark);
+    }
+    
+    .lead{
+      font-size:1.3rem;
+      line-height:1.7;
+      color:var(--text-light);
+      margin-bottom:40px;
+    }
+    
+    .grid{
+      display:grid;
+      gap:30px;
+    }
+    
+    @media(min-width:900px){
+      .grid{grid-template-columns:2fr 1fr}
+    }
+    
+    .card{
+      background:var(--bg-white);
+      border:1px solid var(--border-light);
+      border-radius:12px;
+      padding:30px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.05);
+    }
+    
+    .card h2{
+      color:var(--primary-blue);
+      margin-bottom:20px;
+    }
+    
+    .card p{
+      font-size:1.1rem;
+      line-height:1.7;
+      color:var(--text-light);
+      margin-bottom:20px;
+    }
+    
+    .card ul{
+      list-style:none;
+      padding:0;
+    }
+    
+    .card li{
+      padding:8px 0;
+      font-size:1.05rem;
+      color:var(--text-light);
+      border-bottom:1px solid #f0f0f0;
+    }
+    
+    .card li:last-child{
+      border-bottom:none;
+    }
+    
+    .kpis{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:15px;
+      margin-top:20px;
+    }
+    
+    .kpi{
+      background:linear-gradient(135deg, var(--primary-blue), #6ba3f5);
+      color:white;
+      border-radius:12px;
+      padding:20px 15px;
+      text-align:center;
+      box-shadow:0 4px 15px rgba(74,144,226,0.3);
+    }
+    
+    .kpi .num{
+      font-weight:800;
+      font-size:1.8rem;
+      margin-bottom:5px;
+    }
+    
+    .kpi div:last-child{
+      font-size:0.9rem;
+      opacity:0.9;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .logos{
+        flex-direction:column;
+        gap:15px;
+        text-align:center;
+      }
+      
+      .nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+      
+      .nav a{
+        padding:10px 15px;
+        font-size:12px;
+      }
+      
+      .gallery img{
+        height:250px;
+      }
+      
+      section{
+        padding:40px 20px;
+      }
+    }
+
+    /* Main Content Layout */
+    .main-content{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:60px 20px;
+    }
+    
+    .content-layout{
+      display:grid;
+      grid-template-columns:2fr 1fr;
+      gap:40px;
+    }
+    
+    /* Full width layout for specific pages */
+    .content-layout.dataset-layout,
+    .content-layout.participate-layout,
+    .content-layout.dates-layout,
+    .content-layout.contact-layout{
+      grid-template-columns:1fr;
+      gap:0;
+    }
+    
+    .content-layout.dataset-layout .right-sidebar,
+    .content-layout.participate-layout .right-sidebar,
+    .content-layout.dates-layout .right-sidebar,
+    .content-layout.contact-layout .right-sidebar{
+      display:none;
+    }
+    
+    @media (max-width: 1024px) {
+      .content-layout{
+        grid-template-columns:1fr;
+        gap:30px;
+      }
+      
+      .content-layout.dataset-layout,
+      .content-layout.participate-layout,
+      .content-layout.dates-layout,
+      .content-layout.contact-layout{
+        gap:0;
+      }
+    }
+    
+    .tab-navigation{
+      display:flex;
+      border-bottom:2px solid var(--border-light);
+      margin-bottom:40px;
+      gap:0;
+    }
+    
+    .tab-btn{
+      background:none;
+      border:none;
+      padding:15px 30px;
+      font-size:1.1rem;
+      font-weight:500;
+      color:var(--text-light);
+      cursor:pointer;
+      border-bottom:3px solid transparent;
+      transition:all 0.3s ease;
+      position:relative;
+    }
+    
+    .tab-btn:hover{
+      color:var(--primary-blue);
+      background:rgba(74,144,226,0.05);
+    }
+    
+    .tab-btn.active{
+      color:var(--primary-blue);
+      border-bottom-color:var(--primary-blue);
+      background:rgba(74,144,226,0.05);
+    }
+    
+    /* Tab Content */
+    .tab-content{
+      min-height:400px;
+    }
+    
+    .tab-panel{
+      display:none;
+      animation:fadeIn 0.3s ease-in-out;
+    }
+    
+    .tab-panel.active{
+      display:block;
+    }
+    
+    .tab-panel h2{
+      font-size:2.2rem;
+      color:var(--text-dark);
+      margin-bottom:30px;
+      border-bottom:2px solid var(--primary-blue);
+      padding-bottom:10px;
+    }
+    
+    .content-placeholder{
+      min-height:300px;
+      background:var(--bg-light);
+      border:2px dashed var(--border-light);
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--text-light);
+      font-style:italic;
+    }
+    
+    .content-placeholder:before{
+      content:"Content to be filled...";
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Page Content Management */
+    .page-content{
+      display:none;
+    }
+    
+    .page-content.active{
+      display:block;
+    }
+    
+    /* Dataset Page Styles */
+    .dataset-header{
+      margin-bottom:30px;
+    }
+    
+    .dataset-title{
+      font-size:2.5rem;
+      color:var(--text-dark);
+      font-weight:700;
+      margin:0;
+      padding-bottom:15px;
+      border-bottom:3px solid var(--text-dark);
+    }
+    
+    .dataset-tab-navigation{
+      display:flex;
+      border-bottom:2px solid var(--border-light);
+      margin:30px 0 40px 0;
+      gap:0;
+      flex-wrap:wrap;
+    }
+    
+    .dataset-tab-btn{
+      background:none;
+      border:none;
+      padding:12px 20px;
+      font-size:1rem;
+      font-weight:500;
+      color:var(--text-light);
+      cursor:pointer;
+      border-bottom:3px solid transparent;
+      transition:all 0.3s ease;
+      position:relative;
+    }
+    
+    .dataset-tab-btn:hover{
+      color:var(--primary-blue);
+      background:rgba(74,144,226,0.05);
+    }
+    
+    .dataset-tab-btn.active{
+      color:var(--primary-blue);
+      border-bottom-color:var(--primary-blue);
+      background:rgba(74,144,226,0.05);
+    }
+    
+    .dataset-tab-content{
+      min-height:400px;
+    }
+    
+    .dataset-tab-panel{
+      display:none;
+      animation:fadeIn 0.3s ease-in-out;
+    }
+    
+    .dataset-tab-panel.active{
+      display:block;
+    }
+    
+    .dataset-tab-panel h2{
+      font-size:2rem;
+      color:var(--text-dark);
+      margin-bottom:25px;
+      border-bottom:2px solid var(--primary-blue);
+      padding-bottom:8px;
+    }
+    
+    /* How to Participate Page Styles */
+    .participate-header{
+      margin-bottom:30px;
+    }
+    
+    .participate-title{
+      font-size:2.5rem;
+      color:var(--text-dark);
+      font-weight:700;
+      margin:0;
+      padding-bottom:15px;
+      border-bottom:3px solid var(--text-dark);
+    }
+    
+    .participate-tab-navigation{
+      display:flex;
+      border-bottom:2px solid var(--border-light);
+      margin:30px 0 40px 0;
+      gap:0;
+      flex-wrap:wrap;
+    }
+    
+    .participate-tab-btn{
+      background:none;
+      border:none;
+      padding:12px 20px;
+      font-size:1rem;
+      font-weight:500;
+      color:var(--text-light);
+      cursor:pointer;
+      border-bottom:3px solid transparent;
+      transition:all 0.3s ease;
+      position:relative;
+    }
+    
+    .participate-tab-btn:hover{
+      color:var(--primary-blue);
+      background:rgba(74,144,226,0.05);
+    }
+    
+    .participate-tab-btn.active{
+      color:var(--primary-blue);
+      border-bottom-color:var(--primary-blue);
+      background:rgba(74,144,226,0.05);
+    }
+    
+    .participate-tab-content{
+      min-height:400px;
+    }
+    
+    .participate-tab-panel{
+      display:none;
+      animation:fadeIn 0.3s ease-in-out;
+    }
+    
+    .participate-tab-panel.active{
+      display:block;
+    }
+    
+    .participate-tab-panel h2{
+      font-size:2rem;
+      color:var(--text-dark);
+      margin-bottom:25px;
+      border-bottom:2px solid var(--primary-blue);
+      padding-bottom:8px;
+    }
+    
+    /* Key Dates Page Styles */
+    .dates-header{
+      margin-bottom:30px;
+    }
+    
+    .dates-title{
+      font-size:2.5rem;
+      color:var(--text-dark);
+      font-weight:700;
+      margin:0;
+      padding-bottom:15px;
+      border-bottom:3px solid var(--text-dark);
+    }
+    
+    .dates-content{
+      min-height:400px;
+    }
+    
+    /* Contact Page Styles */
+    .contact-header{
+      margin-bottom:30px;
+    }
+    
+    .contact-title{
+      font-size:2.5rem;
+      color:var(--text-dark);
+      font-weight:700;
+      margin:0;
+      padding-bottom:15px;
+      border-bottom:3px solid var(--text-dark);
+    }
+    
+    .contact-content{
+      min-height:400px;
+    }
+
+    /* News Sidebar */
+    .right-sidebar{
+      position:sticky;
+      top:120px;
+      height:fit-content;
+    }
+    
+    .news-box{
+      border:3px solid var(--text-dark);
+      background:var(--bg-white);
+      padding:0;
+      border-radius:0;
+    }
+    
+    .news-title{
+      background:var(--bg-white);
+      color:#ff8c00;
+      font-size:1.8rem;
+      font-weight:800;
+      text-align:center;
+      margin:0;
+      padding:20px;
+      border-bottom:2px solid var(--text-dark);
+      letter-spacing:2px;
+    }
+    
+    .news-content{
+      padding:30px 25px;
+      min-height:400px;
+      background:var(--bg-light);
+      border:2px dashed var(--border-light);
+      margin:20px;
+      border-radius:8px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--text-light);
+      font-style:italic;
+    }
+    
+    .news-content:before{
+      content:"News content to be filled...";
+    }
+    
+    /* News Items Style (for future use) */
+    .news-item{
+      margin-bottom:25px;
+      padding-bottom:20px;
+      border-bottom:1px solid var(--border-light);
+    }
+    
+    .news-item:last-child{
+      border-bottom:none;
+      margin-bottom:0;
+    }
+    
+    .news-date{
+      color:#d32f2f;
+      font-weight:600;
+      font-size:1rem;
+      margin-bottom:8px;
+    }
+    
+    .news-text{
+      color:var(--text-light);
+      font-size:0.95rem;
+      line-height:1.5;
+    }
+
+    /* Responsive for tabs */
+    @media (max-width: 768px) {
+      .tab-navigation{
+        flex-direction:column;
+      }
+      
+      .tab-btn{
+        text-align:left;
+        padding:12px 20px;
+      }
+      
+      .tab-panel h2{
+        font-size:1.8rem;
+      }
+      
+      .right-sidebar{
+        position:static;
+      }
+      
+      .news-title{
+        font-size:1.5rem;
+        padding:15px;
+      }
+    }
+
+    /* Footer */
+    footer{
+      background:var(--bg-light);
+      border-top:1px solid var(--border-light);
+      padding:40px 0;
+      color:var(--text-light);
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Logos + Nav -->
+  <header class="topbar">
+    <div class="wrap">
+      <div class="logos">
+        <!-- Replace src with real logo URLs -->
+        <img src="image/miccai2026-logo.png" alt="MICCAI 2026"/>
+      </div>
+       <nav class="nav">
+         <ul>
+           <li><a href="#overview">Overview</a></li>
+           <li><a href="#dataset">Dataset</a></li>
+           <li><a href="#participate">How to participate</a></li>
+           <li><a href="#dates">Key dates</a></li>
+           <li><a href="#contact">Contact</a></li>
+         </ul>
+       </nav>
+    </div>
+  </header>
+
+  <!-- Hero Gallery -->
+  <div class="hero" id="home">
+    <div class="gallery">
+      <!-- Replace with your 3 hero images -->
+      <img src="image/1.jpg" alt="Image 1"/>
+      <img src="image/2.webp" alt="Image 2"/>
+      <img src="image/3.jpg" alt="Image 3"/>
+    </div>
+  </div>
+
+  <!-- Main Content with Sidebar -->
+  <section class="main-content">
+    <div class="content-layout">
+      <!-- Left Content - Main Tabs or Dataset Page -->
+      <div class="left-content">
+        <!-- Main Overview Content (Default) -->
+        <div class="page-content active" id="overview-page">
+          <!-- Tab Navigation -->
+          <div class="tab-navigation">
+            <button class="tab-btn active" data-tab="general">General context</button>
+            <button class="tab-btn" data-tab="scientific">Scientific interests</button>
+            <button class="tab-btn" data-tab="organizers">Organizers</button>
+          </div>
+
+          <!-- Tab Content -->
+          <div class="tab-content">
+            <!-- General Context Tab -->
+            <div class="tab-panel active" id="general">
+              <h2>General context xxx challenge</h2>
+              <div class="content-placeholder">
+                <!-- Content to be filled -->
+              </div>
+            </div>
+
+            <!-- Scientific Interests Tab -->
+            <div class="tab-panel" id="scientific">
+              <div class="content-placeholder">
+                <!-- Content to be filled -->
+              </div>
+            </div>
+
+            <!-- Organizers Tab -->
+            <div class="tab-panel" id="organizers">
+              <div class="content-placeholder">
+                <!-- Content to be filled -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dataset Page -->
+        <div class="page-content" id="dataset-page">
+          <div class="dataset-header">
+            <h1 class="dataset-title">Dataset</h1>
+          </div>
+          
+          <!-- Dataset Tab Navigation -->
+          <div class="dataset-tab-navigation">
+            <button class="dataset-tab-btn active" data-tab="dataset-overview">Overview</button>
+            <button class="dataset-tab-btn" data-tab="manual-references">Manual references</button>
+            <button class="dataset-tab-btn" data-tab="training-dataset">Training dataset</button>
+            <button class="dataset-tab-btn" data-tab="testing-dataset">Testing dataset</button>
+            <button class="dataset-tab-btn" data-tab="download">Download</button>
+          </div>
+
+          <!-- Dataset Tab Content -->
+          <div class="dataset-tab-content">
+            <!-- Dataset Overview Tab -->
+            <div class="dataset-tab-panel active" id="dataset-overview">
+              <h2>Overview</h2>
+              <div class="content-placeholder">
+                <!-- Content to be filled -->
+              </div>
+            </div>
+
+            <!-- Manual References Tab -->
+            <div class="dataset-tab-panel" id="manual-references">
+              <h2>Manual references</h2>
+              <div class="content-placeholder">
+                <!-- Content to be filled -->
+              </div>
+            </div>
+
+            <!-- Training Dataset Tab -->
+            <div class="dataset-tab-panel" id="training-dataset">
+              <h2>Training dataset</h2>
+              <div class="content-placeholder">
+                <!-- Content to be filled -->
+              </div>
+            </div>
+
+            <!-- Testing Dataset Tab -->
+            <div class="dataset-tab-panel" id="testing-dataset">
+              <h2>Testing dataset</h2>
+              <div class="content-placeholder">
+                <!-- Content to be filled -->
+              </div>
+            </div>
+
+            <!-- Download Tab -->
+            <div class="dataset-tab-panel" id="download">
+              <h2>Download</h2>
+              <div class="content-placeholder">
+                <!-- Content to be filled -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- How to Participate Page -->
+        <div class="page-content" id="participate-page">
+          <div class="participate-header">
+            <h1 class="participate-title">How to participate</h1>
+          </div>
+          
+          <!-- Participate Tab Navigation -->
+          <div class="participate-tab-navigation">
+            <button class="participate-tab-btn active" data-tab="myosaiq-contest">Contest</button>
+            <button class="participate-tab-btn" data-tab="challenge-tasks">Challenge tasks</button>
+            <button class="participate-tab-btn" data-tab="metrics">Metrics</button>
+            <button class="participate-tab-btn" data-tab="ranking">Ranking</button>
+            <button class="participate-tab-btn" data-tab="evaluation-platform">Evaluation platform</button>
+          </div>
+
+          <!-- Participate Tab Content -->
+          <div class="participate-tab-content">
+            <!-- MYOSAIQ Contest Tab -->
+            <div class="participate-tab-panel active" id="myosaiq-contest">
+              <h2>Contest</h2>
+              <div class="content-placeholder">
+                <!-- Content to be filled -->
+              </div>
+            </div>
+
+            <!-- Challenge Tasks Tab -->
+            <div class="participate-tab-panel" id="challenge-tasks">
+              <h2>Challenge tasks</h2>
+              <div class="content-placeholder">
+                <!-- Content to be filled -->
+              </div>
+            </div>
+
+            <!-- Metrics Tab -->
+            <div class="participate-tab-panel" id="metrics">
+              <h2>Metrics</h2>
+              <div class="content-placeholder">
+                <!-- Content to be filled -->
+              </div>
+            </div>
+
+            <!-- Ranking Tab -->
+            <div class="participate-tab-panel" id="ranking">
+              <h2>Ranking</h2>
+              <div class="content-placeholder">
+                <!-- Content to be filled -->
+              </div>
+            </div>
+
+            <!-- Evaluation Platform Tab -->
+            <div class="participate-tab-panel" id="evaluation-platform">
+              <h2>Evaluation platform</h2>
+              <div class="content-placeholder">
+                <!-- Content to be filled -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Dates Page -->
+        <div class="page-content" id="dates-page">
+          <div class="dates-header">
+            <h1 class="dates-title">Key dates</h1>
+          </div>
+          
+          <div class="dates-content">
+            <div class="content-placeholder">
+              <!-- Content to be filled -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Page -->
+        <div class="page-content" id="contact-page">
+          <div class="contact-header">
+            <h1 class="contact-title">Contact</h1>
+          </div>
+          
+          <div class="contact-content">
+            <div class="content-placeholder">
+              <!-- Content to be filled -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Sidebar - News -->
+      <div class="right-sidebar">
+        <div class="news-box">
+          <h3 class="news-title">NEWS</h3>
+          <div class="news-content">
+            <!-- News content to be filled -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap">
+      © 2025 MYOSAIQ Challenge · This is a demo page styled after CMRxRecon.
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Navigation menu functionality
+      const navLinks = document.querySelectorAll('.nav a');
+      const pageContents = document.querySelectorAll('.page-content');
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetPage = this.getAttribute('href').substring(1);
+
+          // Handle different navigation items
+          if (targetPage === 'overview') {
+            showPage('overview-page');
+          } else if (targetPage === 'dataset') {
+            showPage('dataset-page');
+          } else if (targetPage === 'participate') {
+            showPage('participate-page');
+          } else if (targetPage === 'dates') {
+            showPage('dates-page');
+          } else if (targetPage === 'contact') {
+            showPage('contact-page');
+          }
+          // Add more page handlers as needed
+        });
+      });
+
+      function showPage(pageId) {
+        // Hide all pages
+        pageContents.forEach(page => page.classList.remove('active'));
+        // Show target page
+        document.getElementById(pageId).classList.add('active');
+        
+        // Handle layout changes
+        const contentLayout = document.querySelector('.content-layout');
+        contentLayout.classList.remove('dataset-layout', 'participate-layout', 'dates-layout', 'contact-layout');
+        
+        if (pageId === 'dataset-page') {
+          contentLayout.classList.add('dataset-layout');
+        } else if (pageId === 'participate-page') {
+          contentLayout.classList.add('participate-layout');
+        } else if (pageId === 'dates-page') {
+          contentLayout.classList.add('dates-layout');
+        } else if (pageId === 'contact-page') {
+          contentLayout.classList.add('contact-layout');
+        }
+      }
+
+      // Main tabs functionality (for overview page)
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      const tabPanels = document.querySelectorAll('.tab-panel');
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const targetTab = this.getAttribute('data-tab');
+
+          // Remove active class from all buttons and panels
+          tabBtns.forEach(b => b.classList.remove('active'));
+          tabPanels.forEach(p => p.classList.remove('active'));
+
+          // Add active class to clicked button and corresponding panel
+          this.classList.add('active');
+          document.getElementById(targetTab).classList.add('active');
+        });
+      });
+
+      // Dataset tabs functionality
+      const datasetTabBtns = document.querySelectorAll('.dataset-tab-btn');
+      const datasetTabPanels = document.querySelectorAll('.dataset-tab-panel');
+
+      datasetTabBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const targetTab = this.getAttribute('data-tab');
+
+          // Remove active class from all dataset buttons and panels
+          datasetTabBtns.forEach(b => b.classList.remove('active'));
+          datasetTabPanels.forEach(p => p.classList.remove('active'));
+
+          // Add active class to clicked button and corresponding panel
+          this.classList.add('active');
+          document.getElementById(targetTab).classList.add('active');
+        });
+      });
+
+      // Participate tabs functionality
+      const participateTabBtns = document.querySelectorAll('.participate-tab-btn');
+      const participateTabPanels = document.querySelectorAll('.participate-tab-panel');
+
+      participateTabBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const targetTab = this.getAttribute('data-tab');
+
+          // Remove active class from all participate buttons and panels
+          participateTabBtns.forEach(b => b.classList.remove('active'));
+          participateTabPanels.forEach(p => p.classList.remove('active'));
+
+          // Add active class to clicked button and corresponding panel
+          this.classList.add('active');
+          document.getElementById(targetTab).classList.add('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
